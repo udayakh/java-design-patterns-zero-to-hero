@@ -10,15 +10,7 @@ package com.patterns.solid.ocp;
  * Imagine next month: "also support saving to the cloud". You'd add another
  * branch here, risking the branches that already work.
  */
-public class InvoiceDAO {
-
-    public void saveInvoice(Invoice invoice, String storageType) {
-        if (storageType.equals("DB")) {
-            System.out.println("Saving invoice " + invoice.getId() + " to the database");
-        } else if (storageType.equals("FILE")) {
-            System.out.println("Saving invoice " + invoice.getId() + " to a file");
-        } else {
-            throw new IllegalArgumentException("Unknown storage type: " + storageType);
-        }
-    }
+public interface InvoiceDAO {
+    void save(Invoice invoice);
 }
+

@@ -1,8 +1,8 @@
 package com.patterns.solid.dip;
 
-/** Low-level concretion. Currently referenced directly by MacBook. */
-public class WiredMouse {
+public class WiredMouse implements Mouse {
 
+    @Override
     public void click() {
         System.out.println("  clicking a wired mouse");
     }

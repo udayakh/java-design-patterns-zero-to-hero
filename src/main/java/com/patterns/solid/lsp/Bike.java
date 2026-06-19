@@ -1,16 +1,10 @@
 package com.patterns.solid.lsp;
 
 /**
- * BAD DESIGN — sets up an LSP violation.
- *
- * This interface assumes EVERY bike has an engine. A Bicycle is a bike but has
- * no engine, so it is forced to implement these methods dishonestly (see
- * Bicycle.java). Any code that takes a `Bike` and calls turnOnEngine() will
- * break when handed a Bicycle — the subtype is NOT substitutable.
+ * Base abstraction for anything ride-able. Holds ONLY what every bike can truly
+ * do, so any subtype is fully substitutable for a Bike (LSP). Engine-specific
+ * behavior lives in {@link EnginePowered}, not here.
  */
 public interface Bike {
-
-    void turnOnEngine();
-
     void accelerate();
 }

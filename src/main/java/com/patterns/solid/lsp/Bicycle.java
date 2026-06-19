@@ -1,18 +1,11 @@
 package com.patterns.solid.lsp;
 
 /**
- * BAD DESIGN — the LSP violation made concrete.
- *
- * A Bicycle has no engine, but the Bike interface forces it to implement
- * turnOnEngine(). It "solves" this by throwing — which means a Bicycle CANNOT
- * stand in for a Bike everywhere a Bike is expected. That is the violation.
+ * An honest Bike. It implements only what it can actually do — no engine, so it
+ * never implements (or throws from) an engine method. A Bicycle is therefore a
+ * safe substitute anywhere a Bike is expected.
  */
 public class Bicycle implements Bike {
-
-    @Override
-    public void turnOnEngine() {
-        throw new UnsupportedOperationException("A bicycle has no engine!");
-    }
 
     @Override
     public void accelerate() {

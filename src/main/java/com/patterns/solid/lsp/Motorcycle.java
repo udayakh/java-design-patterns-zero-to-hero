@@ -1,7 +1,7 @@
 package com.patterns.solid.lsp;
 
 /** Honest implementer — a motorcycle really does have an engine. */
-public class Motorcycle implements Bike {
+public class Motorcycle implements Bike, EnginePowered {
 
     private boolean engineOn = false;
 
