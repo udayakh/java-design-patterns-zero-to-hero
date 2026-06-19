@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Patterns Quiz — Zero to Hero</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <h1>🧩 Design Patterns Quiz</h1>
+      <span class="tag">Zero → Hero</span>
+    </header>
+
+    <!-- Views are toggled by app.js; one is visible at a time -->
+    <main id="view-home" class="view"></main>
+    <main id="view-quiz" class="view hidden"></main>
+    <main id="view-result" class="view hidden"></main>
+  </div>
+
+  <!-- Quiz data: one file per module. Add a new pattern => new file + a tag here. -->
+  <!-- SOLID principles, one module each -->
+  <script src="js/data/srp.js"></script>
+  <script src="js/data/ocp.js"></script>
+  <script src="js/data/lsp.js"></script>
+  <script src="js/data/isp.js"></script>
+  <script src="js/data/dip.js"></script>
+  <!-- Patterns -->
+  <script src="js/data/factory-method.js"></script>
+  <script src="js/data/singleton.js"></script>
+  <script src="js/data/strategy.js"></script>
+  <!-- App engine (loaded last so the data registry is populated) -->
+  <script src="js/app.js"></script>
+</body>
+</html>
