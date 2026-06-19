@@ -1,29 +1,31 @@
 package com.patterns.behavioral.observer;
 
-/**
- * BAD DESIGN — sets up the problem Observer solves.
- *
- * The WeatherStation (the publisher) is hard-wired to specific display devices.
- * When the temperature changes it calls each display BY HAND. Consequences:
- *
- *   - Tight coupling: the station knows the concrete PhoneDisplay / TVDisplay types.
- *   - OCP violation: adding a new display (e.g. a web widget) means EDITING this
- *     class and adding another line to setTemperature().
- *   - No runtime subscribe/unsubscribe: you can't add or drop a listener without
- *     changing code here.
- */
-public class WeatherStation {
+import java.util.ArrayList;
+import java.util.List;
 
+public class WeatherStation implements Subject {
     private double temperature;
-
-    // hard-wired dependents — the core problem
-    private final PhoneDisplay phoneDisplay = new PhoneDisplay();
-    private final TVDisplay tvDisplay = new TVDisplay();
+    private List<Observer> observers = new ArrayList<>();
 
     public void setTemperature(double temperature) {
         this.temperature = temperature;
-        // must notify each known display manually; new display => new line here
-        phoneDisplay.show(temperature);
-        tvDisplay.show(temperature);
+        notifyObservers();
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(temperature);
+        }
     }
 }
