@@ -16,7 +16,7 @@ public class Student {
     String mobileNo;
     String emailId;
 
-    public Student(StudentBuilder studentBuilder) {
+    protected Student(StudentBuilder studentBuilder) {
         this.rollNumber = studentBuilder.rollNumber;
         this.age = studentBuilder.age;
         this.name = studentBuilder.name;

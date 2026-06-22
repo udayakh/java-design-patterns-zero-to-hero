@@ -6,6 +6,8 @@ public class FactoryMethodDemo {
         String osName = System.getProperty("os.name").toLowerCase();
         if (osName.contains("mac")) {
             dialog = new MacDialog();
+        } else if (osName.contains("linux")) {
+            dialog = new LinuxDialog();
         } else {
             dialog = new WindowsDialog();
         }
